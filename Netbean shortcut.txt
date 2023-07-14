@@ -1,0 +1,2 @@
+Shift f6 to run
+Alt scroll to zoom in
