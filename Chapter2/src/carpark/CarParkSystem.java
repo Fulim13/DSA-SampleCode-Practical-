@@ -97,6 +97,7 @@ public class CarParkSystem extends JFrame {
         counterB.decrement();
         eastTotal.setText(totalBays - counterB.read() + "");
       }
+      
     }
   }
 

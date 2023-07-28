@@ -2,16 +2,17 @@ package fraction;
 
 /**
  * FractionCalculator.java A client class that simulates a simple calculator.
+ *
  * @author Kat Tan
  * @version 1.0
  */
 public class FractionCalculator extends javax.swing.JFrame {
 
-  public FractionCalculator() {
-    initComponents();
-  }
+    public FractionCalculator() {
+        initComponents();
+    }
 
-  @SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
@@ -176,57 +177,99 @@ public class FractionCalculator extends javax.swing.JFrame {
 
     pack();
   }// </editor-fold>//GEN-END:initComponents
-  
+
   private void jbtAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAddActionPerformed
-    
+      int a = Integer.parseInt(jtfNumerator1.getText());
+      int b = Integer.parseInt(jtfDenominator1.getText());
+      Fraction f1 = new Fraction(a, b);
+
+      int c = Integer.parseInt(jtfNumerator2.getText());
+      int d = Integer.parseInt(jtfDenominator2.getText());
+      Fraction f2 = new Fraction(c, d);
+
+      FractionInterface f3 = f1.add(f2);
+      String outputstr = f1 + " + " + f2 + " = " + f3;
+      jtfResult.setText(outputstr);
+
+
   }//GEN-LAST:event_jbtAddActionPerformed
 
   private void jbtSubtractActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtSubtractActionPerformed
-    
+      int a = Integer.parseInt(jtfNumerator1.getText());
+      int b = Integer.parseInt(jtfDenominator1.getText());
+      Fraction f1 = new Fraction(a, b);
+
+      int c = Integer.parseInt(jtfNumerator2.getText());
+      int d = Integer.parseInt(jtfDenominator2.getText());
+      Fraction f2 = new Fraction(c, d);
+
+      FractionInterface f3 = f1.subtract(f2);
+      String outputstr = f1 + " - " + f2 + " = " + f3;
+      jtfResult.setText(outputstr);
   }//GEN-LAST:event_jbtSubtractActionPerformed
 
   private void jbtMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtMultiplyActionPerformed
-    
+      int a = Integer.parseInt(jtfNumerator1.getText());
+      int b = Integer.parseInt(jtfDenominator1.getText());
+      Fraction f1 = new Fraction(a, b);
+
+      int c = Integer.parseInt(jtfNumerator2.getText());
+      int d = Integer.parseInt(jtfDenominator2.getText());
+      Fraction f2 = new Fraction(c, d);
+
+      FractionInterface f3 = f1.multiply(f2);
+      String outputstr = f1 + " * " + f2 + " = " + f3;
+      jtfResult.setText(outputstr);
   }//GEN-LAST:event_jbtMultiplyActionPerformed
 
   private void jbtDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtDivideActionPerformed
-    
+      int a = Integer.parseInt(jtfNumerator1.getText());
+      int b = Integer.parseInt(jtfDenominator1.getText());
+      Fraction f1 = new Fraction(a, b);
+
+      int c = Integer.parseInt(jtfNumerator2.getText());
+      int d = Integer.parseInt(jtfDenominator2.getText());
+      Fraction f2 = new Fraction(c, d);
+
+      FractionInterface f3 = f1.divide(f2);
+      String outputstr = f1 + " / " + f2 + " = " + f3;
+      jtfResult.setText(outputstr);
   }//GEN-LAST:event_jbtDivideActionPerformed
 
-  /**
-   * @param args the command line arguments
-   */
-  public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
-    //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
      * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-     */
-    try {
-      for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-        if ("Nimbus".equals(info.getName())) {
-          javax.swing.UIManager.setLookAndFeel(info.getClassName());
-          break;
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FractionCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FractionCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FractionCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FractionCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-      }
-    } catch (ClassNotFoundException ex) {
-      java.util.logging.Logger.getLogger(FractionCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-      java.util.logging.Logger.getLogger(FractionCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-      java.util.logging.Logger.getLogger(FractionCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-      java.util.logging.Logger.getLogger(FractionCalculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    }
-    //</editor-fold>
+        //</editor-fold>
 
-    /* Create and display the form */
-    java.awt.EventQueue.invokeLater(new Runnable() {
-      public void run() {
-        new FractionCalculator().setVisible(true);
-      }
-    });
-  }
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FractionCalculator().setVisible(true);
+            }
+        });
+    }
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabel2;
