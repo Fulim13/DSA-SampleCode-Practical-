@@ -58,13 +58,19 @@ public class ArraySet<T> implements SetInterface<T> {
 
     @Override
     public boolean checkSubset(SetInterface anotherSet) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArraySet<T> givenSet = (ArraySet<T>) anotherSet;
+        for (int i = 0; i < givenSet.numberOfEntries; i++) {
+            if (this.indexOf(givenSet.array[i]) == -1) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
     public void union(SetInterface anotherSet) {
         //Downcasting
-        ArraySet<T> givenSet = (ArraySet<T>)anotherSet;
+        ArraySet<T> givenSet = (ArraySet<T>) anotherSet;
         for (int i = 0; i < givenSet.numberOfEntries; i++) {
             this.add(givenSet.array[i]);
         }
@@ -72,7 +78,14 @@ public class ArraySet<T> implements SetInterface<T> {
 
     @Override
     public SetInterface intersection(SetInterface anotherSet) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        ArraySet<T> givenSet = (ArraySet<T>) anotherSet;
+        ArraySet<T> resultSet = new ArraySet<>();
+        for (int i = 0; i < givenSet.numberOfEntries; i++) {
+            if (this.indexOf(givenSet.array[i]) != -1) {
+                resultSet.add(givenSet.array[i]);
+            }
+        }
+        return resultSet;
     }
 
     @Override
