@@ -1,7 +1,11 @@
 package adt;
 
-public interface SetInterface<T> {
+import java.util.Iterator;
 
+public interface SetInterface<T> {
+    
+    Iterator<T> getIterator();
+    
     // can add in front public abstract , but public abstract is already auto add to every method in the interface
     boolean add(T newElement);
 

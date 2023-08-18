@@ -1,5 +1,7 @@
 package adt;
 
+import java.util.Iterator;
+
 public class ArraySet<T> implements SetInterface<T> {
 
     private int numberOfEntries;
@@ -78,11 +80,16 @@ public class ArraySet<T> implements SetInterface<T> {
 
     @Override
     public SetInterface intersection(SetInterface anotherSet) {
+        SetInterface<T> resultSet = new ArraySet<>();
         ArraySet<T> givenSet = (ArraySet<T>) anotherSet;
-        ArraySet<T> resultSet = new ArraySet<>();
         for (int i = 0; i < givenSet.numberOfEntries; i++) {
-            if (this.indexOf(givenSet.array[i]) != -1) {
-                resultSet.add(givenSet.array[i]);
+//            if (this.indexOf(givenSet.array[i]) != -1) {
+//                resultSet.add(givenSet.array[i]);
+//            }
+            T currentElement = givenSet.array[i];
+            int index = indexOf(currentElement);
+            if (index != -1) { // givenSet's current element is in this set
+                resultSet.add(currentElement);
             }
         }
         return resultSet;
@@ -91,6 +98,30 @@ public class ArraySet<T> implements SetInterface<T> {
     @Override
     public boolean isEmpty() {
         return numberOfEntries == 0;
+    }
+
+    @Override
+    public Iterator<T> getIterator() {
+        return new SetIterator();
+    }
+    
+    private class SetIterator implements Iterator<T> {
+        private int currentIndex = 0;
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex < numberOfEntries;
+        }
+
+        @Override
+        public T next() {
+            T currentElement = null;
+            if(hasNext()){
+                currentElement = array[currentIndex++];
+            }
+            return currentElement;
+        }
+        
     }
 
 }
