@@ -44,8 +44,19 @@ public class Fraction implements FractionInterface {
 
         int resultNumerator = a * d + b * c;
         int resultDenominator = b * d;
-        return new Fraction(resultNumerator, resultDenominator);
+        
+        FractionInterface result = simplify(resultNumerator, resultDenominator);
+        
+        return result;
 
+    }
+
+    private FractionInterface simplify(int resultNumerator, int resultDenominator) {
+        int factor = MathUtil.gcd(resultNumerator, resultDenominator);
+        resultNumerator /= factor;
+        resultDenominator /= factor;
+        FractionInterface result = new Fraction(resultNumerator, resultDenominator);
+        return result;
     }
 
     @Override
@@ -58,7 +69,8 @@ public class Fraction implements FractionInterface {
 
         int resultNumerator = a * d - b * c;
         int resultDenominator = b * d;
-        return new Fraction(resultNumerator, resultDenominator);
+        FractionInterface result = simplify(resultNumerator, resultDenominator);
+        return result;
     }
 
     @Override
@@ -71,7 +83,8 @@ public class Fraction implements FractionInterface {
 
         int resultNumerator = a * c;
         int resultDenominator = b * d;
-        return new Fraction(resultNumerator, resultDenominator);
+        FractionInterface result = new Fraction(resultNumerator, resultDenominator);
+        return result;
     }
 
     @Override
@@ -87,7 +100,8 @@ public class Fraction implements FractionInterface {
         }
         int resultNumerator = a * d;
         int resultDenominator = b * c;
-        return new Fraction(resultNumerator, resultDenominator);
+        FractionInterface result = new Fraction(resultNumerator, resultDenominator);
+        return result;
     }
 
     @Override

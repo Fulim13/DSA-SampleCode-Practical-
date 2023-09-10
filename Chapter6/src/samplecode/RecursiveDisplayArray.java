@@ -11,55 +11,72 @@ package samplecode;
  */
 public class RecursiveDisplayArray {
 
-  public static void displayArray(Object[] array) {
+    public static void displayArray(Object[] array) {
 
-    System.out.println("\nInvoking displayArray1()...");
-    displayArray1(array, 0, array.length - 1);
+        System.out.println("\nInvoking displayArray1()...");
+        displayArray1(array, 0, array.length - 1);
 
-    System.out.println("\n\nInvoking displayArray2()...");
-    displayArray2(array, 0, array.length - 1);
+        System.out.println("\n\nInvoking displayArray2()...");
+        displayArray2(array, 0, array.length - 1);
 
-    System.out.println("\n\nInvoking displayArray3()...");
-    displayArray3(array, 0, array.length - 1);
+        System.out.println("\n\nInvoking displayArray3()...");
+        displayArray3(array, 0, array.length - 1);
 
-  }
-
-  // Recursively displays array by starting with array[first]
-  private static void displayArray1(Object[] array, int first, int last) {
-    System.out.print(array[first] + " ");
-    if (first < last) {
-      displayArray1(array, first + 1, last);
     }
-  }
 
-  // Recursively displays array by "starting" with array[last]
-  private static void displayArray2(Object[] array, int first, int last) {
-    
-      if (first <= last) {
-        
-      displayArray2(array, first, last - 1);
-      
-      System.out.print(array[last] + " ");
+    // Recursively displays array by starting with array[first]
+    private static void displayArray1(Object[] array, int first, int last) {
+        System.out.print(array[first] + " ");
+        if (first < last) {
+            displayArray1(array, first + 1, last);
+        }
     }
-  }
 
-  // Recursively displays array by dividing the array in half
-  private static void displayArray3(Object[] array, int first, int last) {
-    if (first == last) {
-      System.out.print(array[first] + " ");
-    } else {
-      int mid = (first + last) / 2;
-      displayArray3(array, first, mid);
-      displayArray3(array, mid + 1, last);
+    // Recursively displays array by "starting" with array[last]
+    private static void displayArray2(Object[] array, int first, int last) {
+
+        if (first <= last) {
+
+            displayArray2(array, first, last - 1);
+
+            System.out.print(array[last] + " ");
+        }
     }
-  }
 
-  public static void main(String[] args) {
-    Integer[] intArray = {10, 20, 30, 40, 50, 60};
+    // Recursively displays array by dividing the array in half
+    private static void displayArray3(Object[] array, int first, int last) {
+        if (first == last) {
+            System.out.print(array[first] + " ");
+        } else {
+            int mid = (first + last) / 2;
+            displayArray3(array, first, mid);
+            displayArray3(array, mid + 1, last);
+        }
+    }
 
-    System.out.println("displayArray(intArray):");
-    displayArray(intArray);
-    System.out.println("\n");
-  }
+    private static void displayBackwards(Object[] a, int first, int last) {
+        if (first <= last) {
+            System.out.println(a[last]);
+            displayBackwards(a, first, last - 1);
+        }
+    }
+
+    public static void displayBackwards(Object[] a) {
+        displayBackwards(a, 0, a.length - 1);
+        System.out.println("\n\n");
+    }
+
+    public static void main(String[] args) {
+        Integer[] intArray = {10, 20, 30, 40, 50, 60};
+
+        System.out.println("displayArray(intArray):");
+        displayArray(intArray);
+        System.out.println("\n");
+
+        System.out.println("Display backward (intArray in reverse: )");
+        displayBackwards(intArray);
+        System.out.println("\n");
+
+    }
 
 }
