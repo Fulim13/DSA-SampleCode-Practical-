@@ -22,16 +22,19 @@ public class TestBInarySearch {
             System.out.print(itIn.next() + " ");
         System.out.println("");
         
+        System.out.println("\nPreorder: ");
         Iterator<Integer> itPre = bTree.getPreorderIterator();
         while(itPre.hasNext())
             System.out.print(itPre.next() + " ");
         System.out.println("");
         
+        System.out.println("\nPostorder: ");
         Iterator<Integer> itPost = bTree.getPostorderIterator();
         while(itPost.hasNext())
             System.out.print(itPost.next() + " ");
         System.out.println("");
         
-
+        System.out.println("\nSmallest value");
+        System.out.println(bTree.getSmallestValue());
     }
 }

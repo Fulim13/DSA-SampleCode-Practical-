@@ -187,6 +187,23 @@ public class BinarySearchTree<T extends Comparable<T>> implements BinarySearchTr
     public void clear() {
         root = null;
     }
+    
+    public T getSmallestValue(){
+        Node minNode = findMinNode(root);
+        if(minNode != null)
+            return minNode.data;
+        else
+            return null;
+    }
+    
+    private Node findMinNode(Node node){
+        if(node == null)
+            return null;
+        else if(node.left == null)
+            return node;
+        else
+            return findMinNode(node.left);
+    }
 
     @Override
     public Iterator<T> getInorderIterator() {
